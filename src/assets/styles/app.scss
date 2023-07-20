@@ -1,3 +1,18 @@
+html,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+}
 body {
   font-family: "Roboto", sans-serif;
   max-width: 1920px;
@@ -53,3 +68,4 @@ body {
   object-fit: cover;
   object-position: center center;
 }
+
