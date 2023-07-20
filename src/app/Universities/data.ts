@@ -1,0 +1,43 @@
+export const randomImagesResponse = [
+    "https://source.unsplash.com/featured/?university",
+    "https://source.unsplash.com/featured/?college",
+    "https://source.unsplash.com/featured/?campus",
+    "https://source.unsplash.com/featured/?university",
+    "https://source.unsplash.com/featured/?college",
+    "https://source.unsplash.com/featured/?campus",
+    "https://source.unsplash.com/featured/?university",
+    "https://source.unsplash.com/featured/?college",
+    "https://source.unsplash.com/featured/?campus",
+    "https://source.unsplash.com/featured/?university",
+    // "https://source.unsplash.com/featured/?college",
+    // "https://source.unsplash.com/featured/?campus",
+    // "https://source.unsplash.com/featured/?university",
+    // "https://source.unsplash.com/featured/?college",
+    // "https://source.unsplash.com/featured/?campus",
+    // "https://source.unsplash.com/featured/?university",
+    // "https://source.unsplash.com/featured/?college",
+    // "https://source.unsplash.com/featured/?campus",
+    // "https://source.unsplash.com/featured/?university",
+    // "https://source.unsplash.com/featured/?college",
+    // "https://source.unsplash.com/featured/?campus",
+    // "https://source.unsplash.com/featured/?university",
+    // "https://source.unsplash.com/featured/?college",
+    // "https://source.unsplash.com/featured/?campus",
+    // "https://source.unsplash.com/featured/?university",
+    // "https://source.unsplash.com/featured/?college",
+    // "https://source.unsplash.com/featured/?campus",
+    // "https://source.unsplash.com/featured/?university",
+    // "https://source.unsplash.com/featured/?college",
+    // "https://source.unsplash.com/featured/?campus",
+    // "https://source.unsplash.com/featured/?university",
+    // "https://source.unsplash.com/featured/?college",
+    // "https://source.unsplash.com/featured/?campus",
+    // "https://source.unsplash.com/featured/?university",
+    // "https://source.unsplash.com/featured/?college",
+    // "https://source.unsplash.com/featured/?campus",
+    
+
+  ];
+
+
+ 

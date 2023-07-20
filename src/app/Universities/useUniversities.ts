@@ -10,3 +10,6 @@ export default axios.create({
        
     }
 })
+
+
+

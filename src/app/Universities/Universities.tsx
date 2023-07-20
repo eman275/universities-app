@@ -5,11 +5,21 @@ import { useCallback, useEffect, useState } from "react";
 import useUniversities from "./useUniversities";
 import UniversityCard from "../../components/UniversityCard/UniversityCard";
 import debounce from "lodash/debounce";
+import insertImageData from "../../utlis/Array";
+import { randomImagesResponse } from "./data";
 
 export default function Universities() {
   const [universities, setUniversities] = useState<UniversityInterface[]>();
   const [searchValue , setSearch] =useState<string |undefined>(undefined)
   const [offset, setOffset] = useState<number>(1);
+
+  const [, setSelectedUniversity] = useState<
+  UniversityInterface | undefined
+>(undefined);
+
+const handleCardClick = (university: UniversityInterface) => {
+  setSelectedUniversity(university);
+};
 
 
   const debouncedSetSearch = debounce((searchQuery: string | undefined) => {
@@ -25,7 +35,9 @@ export default function Universities() {
       },
     });
     if (newOffset === 1) {
-      setUniversities(response.data);
+  const updatedUniversitiesList= insertImageData(response.data, randomImagesResponse, 'imageUrl');
+
+      setUniversities(updatedUniversitiesList);
     } else {
       setUniversities((prevUniversities) =>
         prevUniversities ? [...prevUniversities, ...response.data] : response.data
@@ -61,13 +73,17 @@ export default function Universities() {
   }, []);
 
 
+  // const updatedUniversitiesList= insertImageData(universities, randomImagesResponse, 'imageUrl');
+
+
+
   return (
     <>
       <Helmet>
         <title>universities Page</title>
       </Helmet>
 
-      <h2 className="d-flex align-items-center justify-content-between">
+      <h2 className="main-title">
         Universities
       </h2>
 
@@ -82,8 +98,13 @@ export default function Universities() {
           />
         </Col>
 
-        {universities?.map((items: UniversityInterface, index) => (
-          <UniversityCard key={index} university={items} />
+        {universities?.map((university: UniversityInterface, index: number) => (
+          <UniversityCard
+            key={index}
+            university={university}
+            setSelectedUniversity={handleCardClick}
+            imageUrl={university.imageUrl} // Use the imageUrl property for each university
+          />
         ))}
 
         {universities?.length === 0 && (

@@ -13,6 +13,8 @@ import Loader from './components/loader'
 import { APP } from './config/app'
 import Layout from './layout'
 
+import './styles.css'
+
 
 /***
  * Import bootstrap css

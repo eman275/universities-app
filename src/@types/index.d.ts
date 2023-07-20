@@ -5,4 +5,5 @@ export interface UniversityInterface {
   alpha_two_code: string;
   web_pages: string[];
   name: string;
+  [key: string]: any;
 }
