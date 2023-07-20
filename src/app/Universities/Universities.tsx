@@ -1,21 +1,27 @@
-import { Button, Col, Input, Row } from "reactstrap";
+import { Col, Input, Row } from "reactstrap";
 import { UniversityInterface } from "../../@types";
 import { Helmet } from "react-helmet-async";
 import { useCallback, useEffect, useState } from "react";
 import useUniversities from "./useUniversities";
 import UniversityCard from "../../components/UniversityCard/UniversityCard";
+import debounce from "lodash/debounce";
 
 export default function Universities() {
   const [universities, setUniversities] = useState<UniversityInterface[]>();
   const [searchValue , setSearch] =useState<string |undefined>(undefined)
   const [offset, setOffset] = useState<number>(1);
 
-  const universitiesList = useCallback(async (newOffset: number , searchValue :string | undefined) => {
+
+  const debouncedSetSearch = debounce((searchQuery: string | undefined) => {
+    setSearch(searchQuery);
+  }, 2000);
+  const universitiesList = useCallback(async (newOffset: number, searchQuery: string | undefined) => {
     const response = await useUniversities.get("", {
       params: {
         offset: newOffset,
         limit: 10,
-        search :searchValue
+        name: searchQuery, 
+        country: searchQuery, 
       },
     });
     if (newOffset === 1) {
@@ -26,10 +32,12 @@ export default function Universities() {
       );
     }
   }, []);
+  
 
   useEffect(() => {
-    universitiesList(offset , searchValue);
-  }, [universitiesList, offset , searchValue]);
+    universitiesList(offset, searchValue);
+  }, [universitiesList, offset, searchValue]);
+  
 
 
   const handleScroll = () => {
@@ -68,8 +76,9 @@ export default function Universities() {
           <Input
             className="p-3"
             type="search"
-            placeholder="Filter courses"
-            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search"
+            onChange={(e) => debouncedSetSearch(e.target.value)}
+            
           />
         </Col>
 
